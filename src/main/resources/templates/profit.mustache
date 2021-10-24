@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Прибуток</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+</head>
+<body>
+<form method="get" action="main_menu">
+    <button type="submit">На головну</button>
+</form>
+{{#message}}
+<div><span class="error">{{message}}</span></div>
+{{/message}}
+
+<h1>Розрахувати прибутки</h1>
+<div>
+    <form method="post" action="profit_employees">
+        <button type="submit">За робітниками</button>
+    </form>
+    <form method="post" action="profit_roles">
+        <button type="submit">За посадами</button>
+    </form>
+    <form method="post" action="profit_departments">
+        <button type="submit">За відділами</button>
+    </form>
+</div>
+
+<table>
+    <tr>
+        {{#category}}
+        <th>{{category}}</th>
+        {{/category}}
+        <th>Прибуток</th>
+        <th>Різниця</th>
+    </tr>
+    {{#profit}}
+    <tr>
+        <td>{{source}}</td>
+        <td>${{money}}</td>
+        <td>${{difference}}</td>
+    </tr>
+    {{/profit}}
+</table>
+{{#total}}
+<div><span>Всього: ${{total}}</span></div>
+{{/total}}
+
+<h1>Розрахувати збитки</h1>
+<form method="post" action="loss_employees">
+    <button type="submit">Збитки</button>
+</form>
+<table>
+    <tr>
+        {{#category}}
+        <th>{{category}}</th>
+        {{/category}}
+        <th>Збитки</th>
+        <th>Порада</th>
+    </tr>
+    {{#loss}}
+    <tr>
+        <td>{{source}}</td>
+        <td>${{money}}</td>
+        <td>{{advice}}</td>
+    </tr>
+    {{/loss}}
+</table>
+{{#totalLoss}}
+<div><span>Всього: ${{totalLoss}}</span></div>
+{{/totalLoss}}
+
+<h1>Розрахувати можливі прибутки при роботі з дому</h1>
+<form method="post" action="home_profit">
+    <button type="submit">Можливі прибутки</button>
+</form>
+<table>
+    <tr>
+        {{#category}}
+        <th>{{category}}</th>
+        {{/category}}
+        <th>Можливий прибуток</th>
+        <th>Порада</th>
+    </tr>
+    {{#possibleProfit}}
+    <tr>
+        <td>{{source}}</td>
+        <td>${{money}}</td>
+        <td>{{advice}}</td>
+    </tr>
+    {{/possibleProfit}}
+</table>
+{{#totalPossible}}
+<div><span>Всього: ${{totalPossible}}</span></div>
+{{/totalPossible}}
+</body>
+</html>

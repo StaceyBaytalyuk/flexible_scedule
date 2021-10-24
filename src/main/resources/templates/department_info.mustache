@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Редагувати відділ</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+</head>
+<body>
+<form method="get" action="main_menu">
+    <button type="submit">На головну</button>
+</form>
+<form method="get" action="departments">
+    <button type="submit">Назад</button>
+</form>
+
+<h1>Редагувати відділ</h1>
+{{#department}}
+    <form method="post" action="department_edit">
+        <table>
+            <tr>
+                <td>
+                    ID <input class="short" type='number' name='id' value={{id}} readonly/>
+                    Назва <input type="text" name="name" value="{{name}}"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Початок роботи о <input type="number" name="start" min="0" max="15" value="{{start}}" placeholder="0-15"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Синхронний
+                    <select id="synchronous" name="synchronous">
+                        <option selected="{{isSynchronous}}">{{isSynchronous}}</option>
+                        <option value="true">true</option>
+                        <option value="false">false</option>
+                    </select>
+
+                    Гнучкий графік
+                    <select id="flexible" name="flexible">
+                        <option selected="{{isFlexible}}">{{isFlexible}}</option>
+                        <option value="true">true</option>
+                        <option value="false">false</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <button type="submit">Зберегти зміни</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+<form method="get" action="department_info">
+    <button type="submit">Відмінити зміни</button>
+    <input type='hidden' name='id' value={{id}} />
+</form>
+{{/department}}
+
+{{#message}}
+<div><span class="error">{{message}}</span></div>
+{{/message}}
+</body>
+</html>

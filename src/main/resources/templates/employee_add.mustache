@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Новий працівник</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+</head>
+<body>
+<form method="get" action="main_menu">
+    <button type="submit">На головну</button>
+</form>
+<form method="get" action="employees">
+    <button type="submit">Назад</button>
+</form>
+
+<h1>Новий працівник</h1>
+    <form method="get" action="register_employee">
+        <table>
+            <tr>
+                <td>Ім'я <input type="text" name="name"/> *Посада <input type="text" name="role"/> *Відділ <input type="text" name="department"/></td>
+            </tr>
+            <tr>
+                <td>*Побажання щодо режиму роботи (same, home, change) <input class="short" type="text" name="preference"/> Бажаний початок роботи <input type="number" name="preferredStart" min=0 max=15 placeholder="0-15"/></td>
+            </tr>
+            <tr>
+                <td>*Метод розрахунку заробітної плати (salary, wages, commission) <input class="medium" type="text" name="payroll"/> Годин в місяць <input type="number" name="hours" min=30 max=250 placeholder="160"/></td>
+            </tr>
+            <tr>
+                <td><button type="submit">Створити працівника</button></td>
+            </tr>
+        </table>
+    </form>
+{{#message}}
+<div><span class="error">{{message}}</span></div>
+{{/message}}
+</body>
+</html>

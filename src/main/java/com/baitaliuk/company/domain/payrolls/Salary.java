@@ -1,0 +1,14 @@
+package com.baitaliuk.company.domain.payrolls;
+
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("2")
+public class Salary extends Payroll {
+    public Salary() {
+        hours = basicHours;
+        name = "salary";
+    }
+
+}

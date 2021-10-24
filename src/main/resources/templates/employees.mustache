@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Працівники</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+</head>
+
+<body>
+<form method="get" action="main_menu">
+    <button type="submit">На головну</button>
+</form>
+
+<h1>Працівники</h1>
+<form method="get" action="employee_add">
+    <button type="submit">Додати нового працівника</button>
+</form>
+
+<table>
+    <tr>
+        <th>id</th>
+        <th>Ім'я</th>
+        <th>Посада</th>
+        <th>Відділ</th>
+        <th>Заробітна плата</th>
+        <th>Початок роботи</th>
+        <th>Бажаний режим роботи</th>
+    </tr>
+    {{#employees}}
+    <tr>
+        <td>{{id}}</td>
+        <td>{{name}}</td>
+        <td>{{role.name}}</td>
+        <td>{{department.name}}</td>
+        <td>{{payroll}}</td>
+        <td>{{start}}:00</td>
+        <td>{{preference}}</td>
+    </tr>
+    {{/employees}}
+</table>
+</body>
+</html>

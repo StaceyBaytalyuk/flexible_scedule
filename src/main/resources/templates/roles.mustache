@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Посади</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+</head>
+<body>
+<form method="get" action="main_menu">
+    <button type="submit">На головну</button>
+</form>
+
+<h1>Посади</h1>
+{{#message}}
+<div><span class="error">{{message}}</span></div>
+{{/message}}
+
+<form method="post" action="role_add">
+    <button type="submit">Додати нову посаду</button>
+    <input type="text" name="name" placeholder="Назва"/>
+    Початок роботи о <input type="number" name="start" min="0" max="15" placeholder="0-15"/>
+    <input type="checkbox" id="flexible" name="flexible" checked><label for="flexible">Гнучкий графік</label>
+</form>
+
+<form method="post" action="role_edit">
+    <button type="submit">Редагувати посаду по id</button>
+    <input type="number" name="id" placeholder="id"/>
+    <input type="text" name="name" placeholder="Назва"/>
+    Початок роботи о <input type="number" name="start" min="0" max="15" placeholder="0-15"/>
+    Гнучкий графік
+    <select name="flexible">
+        <option selected=" ">не змінювати</option>
+        <option value="true">true</option>
+        <option value="false">false</option>
+    </select>
+</form>
+
+<table>
+    <tr>
+        <th>id</th>
+        <th>Назва</th>
+        <th>Кількість працівників</th>
+        <th>Початок роботи</th>
+        <th>Гнучкий графік</th>
+    </tr>
+    {{#roles}}
+    <tr>
+        <td>{{id}}</td>
+        <td>{{name}}</td>
+        <td>{{employees.size}}</td>
+        <td>{{start}}:00</td>
+        <td>{{isFlexible}}</td>
+    </tr>
+    {{/roles}}
+</table>
+</body>
+</html>

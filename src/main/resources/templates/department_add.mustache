@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Новий відділ</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+</head>
+
+<body>
+<form method="get" action="main_menu">
+    <button type="submit">На головну</button>
+</form>
+<form method="get" action="departments">
+    <button type="submit">Назад</button>
+</form>
+
+<h1>Новий відділ</h1>
+    <form method="get" action="register_department">
+        <table>
+            <tr>
+                <td>Назва <input type="text" name="name"/></td>
+            </tr>
+            <tr>
+                <td>Початок роботи <input type="number" name="start" min="0" max="15" placeholder="0-15"/></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" id="synchronous" name="synchronous" checked>
+                    <label for="synchronous">Синхронний</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" id="flexible" name="flexible" checked>
+                    <label for="flexible">Гнучкий графік</label>
+                </td>
+            </tr>
+            <tr>
+                <td><button type="submit">Створити відділ</button></td>
+            </tr>
+        </table>
+    </form>
+{{#message}}
+<div><span class="error">{{message}}</span></div>
+{{/message}}
+</body>
+</html>
